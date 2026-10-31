@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "RepoReel Capture",
+  "version": "0.1.0",
+  "description": "Record an app tab with pointer motion and clicks. Edit and export locally.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabCapture", "offscreen", "activeTab", "scripting", "storage"],
+  "action": {"default_popup": "popup.html", "default_title": "RepoReel Capture"},
+  "background": {"service_worker": "worker.js"}
+}
