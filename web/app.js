@@ -66,6 +66,47 @@ $('load-project').onclick=()=>$('project-file').click();$('project-file').onchan
 async function openProject(file){if(!file||exporting)return;try{if(file.size>120*1024*1024)throw Error('Project is too large.');const next=C.validate(JSON.parse(await file.text()));pause();if(next.source.kind==='video'){const response=await fetch(next.source.data);const url=URL.createObjectURL(await response.blob());await attachVideo(url);}else{videoReady=false;video.removeAttribute('src');if(sourceURL){URL.revokeObjectURL(sourceURL);sourceURL=null;}}project=next;time=project.settings.trimStart;history.length=0;$('undo').disabled=true;setPicking(null);refresh(true);seek(time);notice('');toast('Project opened locally.');}catch(e){notice('Could not open project: '+e.message);}}
 async function startNativeCapture(){let nativeStream=null;if(recording){recording.stop();return;}if(exporting)return;if(!navigator.mediaDevices?.getDisplayMedia){notice('Screen capture needs a supported browser and HTTPS or localhost. You can still import a clip.');return;}try{pause();const stream=nativeStream=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:30},audio:false});const type=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm','video/mp4'].find(x=>MediaRecorder.isTypeSupported(x));const rec=new MediaRecorder(stream,type?{mimeType:type}:{}),chunks=[],start=performance.now();recording=rec;rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};const timer=setTimeout(()=>{if(rec.state!=='inactive')rec.stop();},600000);rec.onstop=()=>{clearTimeout(timer);stream.getTracks().forEach(t=>t.stop());recording=null;$('record-screen').innerHTML='<span class="record-dot"></span> Record screen';importVideo(new File(chunks,'Screen capture.'+(rec.mimeType.includes('mp4')?'mp4':'webm'),{type:rec.mimeType}),(performance.now()-start)/1000);};stream.getVideoTracks()[0].onended=()=>{if(rec.state!=='inactive')rec.stop();};rec.start(500);$('record-screen').textContent='■ Stop recording';notice('Recording. Use the browser sharing bar or this button to stop. For automatic click tracking, use the capture extension.');}catch(e){nativeStream?.getTracks().forEach(t=>t.stop());if(e.name==='NotAllowedError')toast('Screen capture was cancelled.');else notice('Could not start recording: '+e.message);}}
 $('record-screen').onclick=startNativeCapture;
+$('launch-presets').onclick=e=>{
+ const button=e.target.closest('[data-preset]');
+ const preset=button&&C.launchPreset(button.dataset.preset);
+ if(!preset||exporting)return;
+ checkpoint();
+ Object.assign(project.settings,preset);
+ refresh(true);
+ toast(button.textContent+' preset applied. Undo is available.');
+};
+let preparingComparison=false;
+$('compare-frame').onclick=async()=>{
+ if(exporting||preparingComparison)return;
+ preparingComparison=true;
+ pause();setPicking(null);
+ const frame=project,at=time;
+ try{
+  await seekExact(at);
+  if(project!==frame||time!==at||exporting)return;
+  const size=C.dimensions(frame.settings.ratio,640);
+  const source=$('compare-source'),edited=$('compare-edited');
+  for(const panel of [source,edited]){panel.width=size.width;panel.height=size.height;}
+  R.renderSourceFrame(source.getContext('2d'),frame,at,videoReady?video:null,sampleCanvas);
+  R.render(edited.getContext('2d'),frame,at,videoReady?video:null,sampleCanvas);
+  $('compare-dialog').showModal();
+ }catch(e){notice(e.message);}
+ finally{preparingComparison=false;}
+};
+$('close-compare').onclick=()=>$('compare-dialog').close();
+$('compare-dialog').addEventListener('close',()=>{
+ for(const id of ['compare-source','compare-edited']){const panel=$(id);panel.width=0;panel.height=0;}
+});
+$('save-comparison').onclick=()=>{
+ const source=$('compare-source'),edited=$('compare-edited');
+ const out=document.createElement('canvas'),gap=20,margin=24,header=52;
+ out.width=2*source.width+2*margin+gap;out.height=header+source.height+margin;
+ const c=out.getContext('2d');c.fillStyle='#151619';c.fillRect(0,0,out.width,out.height);
+ c.fillStyle='#ffffff';c.font='600 18px system-ui';
+ c.fillText('Source frame',margin,32);c.fillText('Edited frame',margin+source.width+gap,32);
+ c.drawImage(source,margin,header);c.drawImage(edited,margin+source.width+gap,header);
+ out.toBlob(blob=>{if(blob)download('reporeel-before-after.png',blob);else toast('Could not save comparison.');},'image/png');
+};
 function openExport(){pause();setPicking(null);$('export-duration').textContent=C.outputDuration(project).toFixed(1)+' seconds';$('export-status').textContent='';$('markdown-block').hidden=true;$('export-dialog').showModal();}
 $('open-export').onclick=openExport;$('close-export').onclick=()=>{if(exporting){abortExport=true;return;}$('export-dialog').close();};$('export-dialog').addEventListener('cancel',e=>{if(exporting){e.preventDefault();abortExport=true;}});
 document.querySelectorAll('[data-format]').forEach(b=>b.onclick=()=>{if(exporting)return;exportFormat=b.dataset.format;$('markdown-block').hidden=true;document.querySelectorAll('[data-format]').forEach(x=>x.classList.toggle('selected',x===b));$('render-export').textContent={webm:'Export video ↗',gif:'Export README GIF ↗',png:'Export cover image ↗'}[exportFormat];$('export-info').textContent={webm:'Silent video · real-time render',gif:'10 fps · maximum 20 seconds',png:'Full-resolution current frame'}[exportFormat];});
