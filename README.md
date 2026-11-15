@@ -2,11 +2,11 @@
 
 # ▶ RepoReel
 
-### Record your app. Make it a launch.
+### Turn a screen recording into a GitHub README GIF.
 
-**Turn one app walkthrough into a pitch-deck clip, a README GIF, and a cover image.**
+**Record or import a clip, zoom in on key moments, add captions, and export in your browser.**
 
-[**Try the sample GIF →**](https://junghwan0516.github.io/reporeel/?start=gif) · [Open the studio](https://junghwan0516.github.io/reporeel/) · [Capture extension](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip) · [한국어](README.ko.md)
+[**Make a sample GIF →**](https://junghwan0516.github.io/reporeel/?start=gif) · [Edit my own clip](https://junghwan0516.github.io/reporeel/) · [한국어](README.ko.md)
 
 Local processing · No account · No API keys · No watermark · MIT
 
@@ -14,13 +14,11 @@ Local processing · No account · No API keys · No watermark · MIT
 
 </div>
 
-![RepoReel renderer demo](docs/demo.gif)
+[![Orbit sample: click zoom, captions, and polished framing](docs/demo.gif)](https://junghwan0516.github.io/reporeel/?start=gif)
 
 *The illustrated Orbit sample, rendered with the same camera, cursor, caption, and export pipeline as your footage. It is not a recording of a third-party app.*
 
-You built something good. Give people a reason to look closer.
-
-RepoReel turns a clip of your app into a polished demo: click-focused camera motion, a smooth cursor, captions, opaque redactions, a gradient canvas, and a GIF you can put straight into your README. Everything runs on your device.
+Use it to show a feature in your README, walk reviewers through a pull request, or capture a bug with context.
 
 ## Try it in 60 seconds
 
@@ -30,9 +28,7 @@ RepoReel turns a clip of your app into a polished demo: click-focused camera mot
 
 ## Make your own demo
 
-**[Open the studio](https://junghwan0516.github.io/reporeel/)**, press play, and change the background or canvas ratio. Export the sample as a GIF, silent WebM, or PNG cover.
-
-To use your own app:
+[**Open the studio with your own clip**](https://junghwan0516.github.io/reporeel/). On desktop Chrome or Edge, start with these steps:
 
 1. Drop in an MP4/WebM clip, or choose **Record screen** and select a screen, window, or tab in your browser's picker.
 2. Scrub to a moment, choose **Add focus**, and click the part of the frame you want to highlight.
