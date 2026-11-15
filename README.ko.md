@@ -1,14 +1,16 @@
 # ▶ RepoReel
 
-**앱 화면을 한 번 녹화해서 GitHub README GIF, 발표 영상, 커버 이미지로.**
+**앱 화면을 녹화하고, 중요한 장면에 줌과 자막을 넣어 GitHub README용 GIF로 만드세요.**
 
-[**샘플 GIF 바로 만들어 보기**](https://junghwan0516.github.io/reporeel/?start=gif) · [스튜디오 열기](https://junghwan0516.github.io/reporeel/) · [English](README.md)
+[**샘플 GIF 바로 만들어 보기**](https://junghwan0516.github.io/reporeel/?start=gif) · [내 영상 편집하기](https://junghwan0516.github.io/reporeel/) · [English](README.md)
 
 가입, 영상 업로드, 워터마크 없이 브라우저에서 편집할 수 있어요. 처음에는 확장 프로그램도 필요 없어요.
 
-![RepoReel의 Orbit 일러스트 샘플을 편집한 모습](docs/demo.gif)
+[![줌과 자막을 넣은 RepoReel Orbit 샘플](docs/demo.gif)](https://junghwan0516.github.io/reporeel/?start=gif)
 
-*기본 제공되는 Orbit 일러스트 샘플입니다. 실제 외부 앱을 녹화한 영상은 아닙니다.*
+*기본 제공되는 Orbit 일러스트 샘플입니다. 이미지를 누르면 이 샘플로 직접 GIF를 만들 수 있어요.*
+
+새 기능을 README에 소개하거나, PR 리뷰어에게 변경된 화면을 보여주거나, 버그 재현 과정을 남길 때 써보세요.
 
 ## 60초 체험: 아무것도 녹화하지 않고 GIF 만들기
 
