@@ -6,7 +6,7 @@
 
 **Turn one app walkthrough into a pitch-deck clip, a README GIF, and a cover image.**
 
-[**Try the sample GIF →**](https://junghwan0516.github.io/reporeel/?start=gif) · [Open the studio](https://junghwan0516.github.io/reporeel/) · [Capture extension](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip) · [Product demo guide](docs/product-demo-guide.md) · [한국어](README.ko.md)
+[**Try the sample GIF →**](https://junghwan0516.github.io/reporeel/?start=gif) · [Open the studio](https://junghwan0516.github.io/reporeel/) · [Capture extension](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip) · [한국어](README.ko.md)
 
 Local processing · No account · No API keys · No watermark · MIT
 
@@ -38,8 +38,6 @@ To use your own app:
 2. Scrub to a moment, choose **Add focus**, and click the part of the frame you want to highlight.
 3. Add captions. Draw opaque redactions over anything private.
 4. Trim to 20 seconds or less for GIF. Choose **Export → README GIF → Export README GIF** and upload `demo.gif` to `docs/demo.gif` in your own repository. Use **Copy Markdown** to embed it. **Save project** keeps your original footage and edits in one `.reel.json` file.
-
-**Making a pitch deck or launch post?** [Follow the Lumen Edu shooting plan](docs/product-demo-guide.md) for a four-shot storyboard, English captions, and export settings you can adapt to your own app.
 
 Want automatic click tracking? Use the optional capture extension below.
 
