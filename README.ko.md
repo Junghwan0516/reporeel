@@ -1,30 +1,47 @@
 # ▶ RepoReel
 
-**앱을 시연하고, 공개하고 싶은 데모로 만든다.**
+**앱 화면을 한 번 녹화해서 GitHub README GIF, 발표 영상, 커버 이미지로.**
 
-[스튜디오 바로 열기](https://junghwan0516.github.io/reporeel/) · [English](README.md)
+[**샘플 GIF 바로 만들어 보기**](https://junghwan0516.github.io/reporeel/?start=gif) · [스튜디오 열기](https://junghwan0516.github.io/reporeel/) · [English](README.md)
 
-설치 없이 샘플을 재생하고 배경·화면 비율·확대 효과를 바꿀 수 있다. 자기 영상을 가져오거나 브라우저 화면 선택기로 녹화한 뒤, 확대 지점과 자막을 추가하고 가리고 싶은 영역을 지정한다. GIF·무음 WebM·PNG로 내보내며, 원본과 편집 내용을 프로젝트 파일로 저장할 수 있다.
+가입, 영상 업로드, 워터마크 없이 브라우저에서 편집할 수 있어요. 처음에는 확장 프로그램도 필요 없어요.
 
-별도 Chrome 확장은 탭 영상과 마우스 이동·클릭 위치를 기록한다. 녹화를 마치면 클릭 위치에 확대 효과가 적용되는 로컬 편집기가 열린다. 확장은 Chrome 웹 스토어 배포본이 아닌 직접 설치용 베타이며, 실제 데스크톱 Chrome에서 전체 캡처 흐름의 추가 검증이 필요하다.
+![RepoReel의 Orbit 일러스트 샘플을 편집한 모습](docs/demo.gif)
 
-- [확장 ZIP 다운로드](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip)
-- `chrome://extensions` → 개발자 모드 → 압축해제된 확장 프로그램 로드
-- 내려받은 ZIP을 푼 폴더 선택 → 앱 탭에서 RepoReel 아이콘 클릭
+*기본 제공되는 Orbit 일러스트 샘플입니다. 실제 외부 앱을 녹화한 영상은 아닙니다.*
 
-기본 화면 녹화에는 다른 탭의 클릭 위치가 기록되지 않는다. 직접 확대 지점을 추가하거나 확장을 사용한다. 확장은 최상위 문서의 포인터를 기록하며, 전체 페이지 이동·새로고침 이후에는 해당 문서의 포인터 추적이 이어지지 않는다.
+## 60초 체험: 아무것도 녹화하지 않고 GIF 만들기
 
-**현재 제공하는 것:** 5개 배경, 3개 화면 비율, 클릭 확대, 부드러운 커서, 편집 가능한 자막, 불투명 가림 영역, 구간 자르기, 배속, 실행 취소, GIF·WebM·PNG 출력, 프로젝트 저장·불러오기.
+1. [샘플 GIF 바로 만들어 보기](https://junghwan0516.github.io/reporeel/?start=gif)를 눌러요.
+2. **Export README GIF**를 누르면 샘플 영상이 `demo.gif`로 저장돼요.
+3. 내보내기 창을 닫고 샘플을 재생해요. 원하는 장면에 멈춘 뒤 **Before / after**를 누르면 같은 장면의 원본과 편집본을 비교할 수 있어요. **Save comparison PNG**로 비교 이미지를 저장할 수도 있어요.
 
-**지원 범위:** 입력 영상 80 MB·10분 이하, 브라우저 GIF는 출력 20초 이하·10 fps. 영상은 무음이며 자동 대기 구간 제거·음성 생성·자동 개인정보 탐지는 제공하지 않는다. MP4는 WebM을 내보낸 뒤 설치된 FFmpeg로 변환한다. 원본 영상의 장면별 썸네일은 아직 만들지 않으며 현재 프레임을 표시한다.
+## 내 앱으로 첫 데모 만들기
+
+| 순서 | 화면에서 할 일 |
+|---|---|
+| **1. 가져오기** | **Bring your own video**로 MP4·WebM을 열거나 **Record screen**에서 내 앱 탭을 선택해요. |
+| **2. 편집하기** | 용도에 따라 **Pitch deck**, **README**, **Square social** 프리셋을 골라요. 중요한 장면에 멈추고 **Add focus**를 눌러 강조할 부분을 클릭해요. **Captions**에서 짧은 설명을 붙여요. |
+| **3. 확인하기** | 민감한 정보가 보이면 **Redactions**에서 가릴 영역을 정해요. **Before / after**에서 가림 처리를 유지한 채 원본과 편집본을 비교해요. 공유 전에 영상 전체도 확인해요. |
+| **4. 내보내기** | **Export → README GIF**로 GIF를 만들어요. 브라우저 GIF 출력은 최대 20초예요. 발표용은 **Video**(무음 WebM), 대표 이미지는 **Cover image**(PNG)를 골라요. |
+| **5. 올리기** | 내 프로젝트 저장소의 `docs/demo.gif`에 GIF를 올려요. **Copy Markdown**을 누르고 README에 붙여넣어요. |
+
+```md
+![앱 실행 화면](docs/demo.gif)
+```
+
+[루멘에듀 IR 촬영 가이드](docs/product-demo-guide.md)에는 영어 자막과 20초 촬영 순서가 있어요. 발표용 MP4가 필요하면 WebM을 내보낸 뒤, FFmpeg가 설치된 환경에서 RepoReel 저장소의 변환 도구를 실행하세요.
 
 ```sh
-python3 dev.py
-# http://127.0.0.1:8080
-
 python3 tools/convert.py demo.webm --mp4 demo.mp4
 ```
 
-처리는 로컬에서 이루어진다. **저장한 프로젝트에는 가림 처리 전 원본이 들어간다.** 민감정보가 있다면 프로젝트 대신 최종 출력물을 검토해서 공유한다. 확장의 최근 녹화는 로컬에 유지되며 새 녹화로 교체되거나 확장 제거 시 삭제된다.
+## 클릭을 자동으로 기록하려면
 
-전체 설치 방법·비교 규칙·제한사항·테스트 방법은 영문 README에 정리했다. MIT 라이선스로 공개한다.
+일반 화면 녹화는 앱 탭의 클릭 위치를 수집하지 않아요. 직접 **Add focus**를 사용하거나 [Chrome 확장 ZIP](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip)을 풀고 `chrome://extensions` → **개발자 모드** → **압축해제된 확장 프로그램 로드**에서 설치하세요. 내 앱 탭에서 확장 아이콘을 누르면 녹화를 시작할 수 있어요.
+
+확장은 수동 설치용 베타이며 Chrome 웹 스토어 배포본은 아니에요. 전체 페이지를 이동하거나 새로고침하면 그 문서의 클릭 추적이 이어지지 않아요. 이후 장면에는 확대 지점을 직접 추가하세요.
+
+**공유할 때는 완성 영상 또는 이미지만 올려요.** 편집 프로젝트(`.reel.json`)에는 가림 처리 전 원본이 포함돼요. 영상 입력은 최대 80 MB·10분이며 지원 코덱은 브라우저에 따라 달라요. 로컬 실행·테스트·세부 제한은 [영문 README](README.md)에서 볼 수 있어요.
+
+[데모 공유하기](https://github.com/Junghwan0516/reporeel/issues/new?template=demo-showcase.md)에서 완성본을 소개할 수 있어요. RepoReel로 만든 데모가 있다면 완성 영상과 함께 스튜디오 링크를 공유해 주세요. 유용했다면 GitHub 스타도 다른 개발자가 프로젝트를 발견하는 데 도움이 돼요.

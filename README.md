@@ -6,7 +6,7 @@
 
 **Turn one app walkthrough into a pitch-deck clip, a README GIF, and a cover image.**
 
-[**Open the studio →**](https://junghwan0516.github.io/reporeel/) · [Capture extension](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip) · [Product demo guide](docs/product-demo-guide.md) · [한국어](README.ko.md)
+[**Try the sample GIF →**](https://junghwan0516.github.io/reporeel/?start=gif) · [Open the studio](https://junghwan0516.github.io/reporeel/) · [Capture extension](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip) · [Product demo guide](docs/product-demo-guide.md) · [한국어](README.ko.md)
 
 Local processing · No account · No API keys · No watermark · MIT
 
@@ -24,8 +24,8 @@ RepoReel turns a clip of your app into a polished demo: click-focused camera mot
 
 ## Try it in 60 seconds
 
-1. [Open RepoReel Studio](https://junghwan0516.github.io/reporeel/) and play the built-in Orbit sample.
-2. Pause on a click and choose **Before / after** to compare the same source and edited frame. Save a comparison PNG if useful.
+1. [Open the sample GIF exporter](https://junghwan0516.github.io/reporeel/?start=gif) and click **Export README GIF**. You get a real file without recording or uploading anything.
+2. Close the export window, play the sample, then pause on a click and choose **Before / after** to compare the same source and edited frame. Save a comparison PNG if useful.
 3. Switch among **Pitch deck**, **README**, and **Square social** to try different framing. Then record or import your app and export a clip.
 
 ## Make your own demo
@@ -37,7 +37,7 @@ To use your own app:
 1. Drop in an MP4/WebM clip, or choose **Record screen** and select a screen, window, or tab in your browser's picker.
 2. Scrub to a moment, choose **Add focus**, and click the part of the frame you want to highlight.
 3. Add captions. Draw opaque redactions over anything private.
-4. Trim, change speed, and export. **Save project** preserves your original footage and edits in one `.reel.json` file.
+4. Trim to 20 seconds or less for GIF. Choose **Export → README GIF → Export README GIF** and upload `demo.gif` to `docs/demo.gif` in your own repository. Use **Copy Markdown** to embed it. **Save project** keeps your original footage and edits in one `.reel.json` file.
 
 **Making a pitch deck or launch post?** [Follow the Lumen Edu shooting plan](docs/product-demo-guide.md) for a four-shot storyboard, English captions, and export settings you can adapt to your own app.
 
@@ -174,4 +174,4 @@ Focused improvements welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Current pr
 
 [MIT](LICENSE).
 
-If you shipped a demo with RepoReel, share the finished clip with a link to the studio so others can try it. A star helps more developers find the project.
+[Share a finished demo](https://github.com/Junghwan0516/reporeel/issues/new?template=demo-showcase.md) in the showcase. If you shipped a demo with RepoReel, share the finished clip with a link to the studio so others can try it. A star helps more developers find the project.
