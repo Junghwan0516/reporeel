@@ -40,5 +40,18 @@ function render(ctx,p,t,source,sampleCanvas){
  const caption=p.captions.find(c=>t>=c.start&&t<c.end);const bottom=Math.min(H-16*W/1280,r.y+r.h+33*W/1280);if(caption&&caption.text){ctx.textAlign='center';text(ctx,caption.text,W/2,bottom,15*W/1280,s.theme==='slate'?'#e9e9f2':'#262039',550);ctx.textAlign='start';}
  return r;
 }
-const api={render,sample,sourceRect,themes};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ReelRenderer=api;
+function renderSourceFrame(ctx,p,t,source,sampleCanvas){
+ const {width:W,height:H}=ctx.canvas;
+ if(p.source.kind==='demo'){sample(sampleCanvas.getContext('2d'),t);source=sampleCanvas;}
+ ctx.fillStyle='#20212a';ctx.fillRect(0,0,W,H);
+ if(!source)return;
+ const scale=Math.min(W/p.source.width,H/p.source.height);
+ const w=p.source.width*scale,h=p.source.height*scale,x=(W-w)/2,y=(H-h)/2;
+ ctx.drawImage(source,x,y,w,h);
+ for(const m of p.masks){
+  const l=Math.floor(x+m.x*w),top=Math.floor(y+m.y*h);
+  ctx.fillRect(l,top,Math.ceil(x+(m.x+m.w)*w)-l,Math.ceil(y+(m.y+m.h)*h)-top);
+ }
+}
+const api={renderSourceFrame,render,sample,sourceRect,themes};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ReelRenderer=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

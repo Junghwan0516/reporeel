@@ -35,6 +35,14 @@ function cameraAt(events,t,settings){
 }
 function dimensions(ratio,width=1280){return ratio==='portrait'?{width:Math.round(width*9/16),height:width}:ratio==='square'?{width,height:width}:{width,height:Math.round(width*9/16)};}
 function outputDuration(p){return (p.settings.trimEnd-p.settings.trimStart)/p.settings.speed;}
-const api={clamp,smooth,defaults,demoProject,validate,pointerAt,cameraAt,dimensions,outputDuration};
+function launchPreset(name) {
+ const presets = {
+  pitch: {ratio:'wide',theme:'slate',padding:36,radius:12,shadow:true},
+  readme: {ratio:'wide',theme:'iris',padding:52,radius:14,shadow:true},
+  social: {ratio:'square',theme:'mint',padding:46,radius:16,shadow:true}
+ };
+ return Object.hasOwn(presets,name) ? {...presets[name]} : null;
+}
+const api={launchPreset,clamp,smooth,defaults,demoProject,validate,pointerAt,cameraAt,dimensions,outputDuration};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ReelCore=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

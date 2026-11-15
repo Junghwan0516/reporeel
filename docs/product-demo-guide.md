@@ -21,9 +21,9 @@ This is a **shooting plan**, not a published recording. Use a demo account, a fi
 
 1. Open your product in a regular browser tab. Turn off notifications and hide real student names, account data, and browser chrome before recording.
 2. In RepoReel, select **Record screen** and choose the product tab. Walk through the prepared scenario. If your browser cannot capture the tab, record elsewhere and import the clip instead.
-3. Trim the clip. Use **Add focus** at the two points where attention matters most. Add short captions where the meaning would otherwise be unclear.
+3. Pick the **Pitch deck** preset for 16:9 framing, then trim the clip. Use **Add focus** at the two points where attention matters most. Add short captions where the meaning would otherwise be unclear.
 4. Scrub from start to finish and review the whole frame. If needed, use opaque redactions. A saved `.reel.json` project still contains the original footage; share only the reviewed export.
-5. Export the same edit for the channels below.
+5. Pause on a key moment and use **Before / after → Save comparison PNG** if you want a side-by-side image. The same redactions are rendered in both views. Then export the edit for the channels below.
 
 | Channel | Recommended output |
 |---|---|

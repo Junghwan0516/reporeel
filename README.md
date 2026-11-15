@@ -22,7 +22,13 @@ You built something good. Give people a reason to look closer.
 
 RepoReel turns a clip of your app into a polished demo: click-focused camera motion, a smooth cursor, captions, opaque redactions, a gradient canvas, and a GIF you can put straight into your README. Everything runs on your device.
 
-## Try it before installing anything
+## Try it in 60 seconds
+
+1. [Open RepoReel Studio](https://junghwan0516.github.io/reporeel/) and play the built-in Orbit sample.
+2. Pause on a click and choose **Before / after** to compare the same source and edited frame. Save a comparison PNG if useful.
+3. Switch among **Pitch deck**, **README**, and **Square social** to try different framing. Then record or import your app and export a clip.
+
+## Make your own demo
 
 **[Open the studio](https://junghwan0516.github.io/reporeel/)**, press play, and change the background or canvas ratio. Export the sample as a GIF, silent WebM, or PNG cover.
 
@@ -168,4 +174,4 @@ Focused improvements welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Current pr
 
 [MIT](LICENSE).
 
-If RepoReel helps you show your work, a star helps someone else find it.
+If you shipped a demo with RepoReel, share the finished clip with a link to the studio so others can try it. A star helps more developers find the project.
