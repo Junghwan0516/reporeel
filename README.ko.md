@@ -30,12 +30,6 @@
 ![앱 실행 화면](docs/demo.gif)
 ```
 
-[루멘에듀 IR 촬영 가이드](docs/product-demo-guide.md)에는 영어 자막과 20초 촬영 순서가 있어요. 발표용 MP4가 필요하면 WebM을 내보낸 뒤, FFmpeg가 설치된 환경에서 RepoReel 저장소의 변환 도구를 실행하세요.
-
-```sh
-python3 tools/convert.py demo.webm --mp4 demo.mp4
-```
-
 ## 클릭을 자동으로 기록하려면
 
 일반 화면 녹화는 앱 탭의 클릭 위치를 수집하지 않아요. 직접 **Add focus**를 사용하거나 [Chrome 확장 ZIP](https://junghwan0516.github.io/reporeel/downloads/reporeel-extension.zip)을 풀고 `chrome://extensions` → **개발자 모드** → **압축해제된 확장 프로그램 로드**에서 설치하세요. 내 앱 탭에서 확장 아이콘을 누르면 녹화를 시작할 수 있어요.
